@@ -1,0 +1,14 @@
+{
+  "name": "rabbitmq-nodejs-test-project",
+  "version": "1.0.0",
+  "description": "Test rabbitmq features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kdev",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.2"
+  }
+}
