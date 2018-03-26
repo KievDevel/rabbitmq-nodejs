@@ -9,6 +9,9 @@ amqp.connect('amqp://localhost', function(err, conn) {
 
         ch.assertQueue(queue, {durable: true});
 
+        //accept only 1 message
+        ch.prefetch(1);
+
         console.log("Waiting for messages in %s. To exit press CTRL+C", queue);
 
         ch.consume(queue, function(msg) {
