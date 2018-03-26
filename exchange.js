@@ -4,11 +4,11 @@ let amqp = require('amqplib/callback_api');
 
 amqp.connect('amqp://localhost', function(err, conn) {
     conn.createChannel(function(err, ch) {
-        let queue = 'sha-generator';
-        let msg   = 'generate SHA';
+        let exchange = 'logs';
+        let msg      = 'generate SHA';
 
-        ch.assertQueue('', {durable: false});
-        ch.sendToQueue(queue, new Buffer(msg), {persistent: true});
+        ch.assertExchange(exchange, 'fanout', {durable: false});
+        ch.publish(exchange, '', new Buffer(msg));
 
         console.log("Sent %s", msg);
     });
