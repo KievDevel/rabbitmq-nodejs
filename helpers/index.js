@@ -13,4 +13,11 @@ const generateHash = (string) => {
     return result;
 };
 
+const generateUuid = () => {
+    return Math.random().toString() +
+        Math.random().toString() +
+        Math.random().toString();
+};
+
 module.exports.generateHash = generateHash;
+module.exports.generateUuid = generateUuid;
